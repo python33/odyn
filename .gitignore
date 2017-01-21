@@ -2,3 +2,7 @@ tags
 *.pyc
 *.swp
 *.swo
+
+build/*
+dist/*
+odyn.egg-info/*
