@@ -1,15 +1,25 @@
 from numpy import array as v
 
-from base.components import Transform, Material
-from base.relations import ChildParent
+from game.base.components import Transform, Material
+from game.base.relations import ChildParent
 
 
 class GameObject(ChildParent):
     def __init__(self, pos=v([0.0, 0.0, 0.0]), rot=v([0.0, 0.0, 0.0]), scale=v([1.0, 1.0, 1.0])):
-        self.transform = Transform(pos, rot, scale)
+        self.transform = Transform(self, pos, rot, scale)
         self.material = Material()
         self.components = []
         super(GameObject, self).__init__()
+
+    def get_component(self, name):
+        for c in self.components:
+            if c.__class__.__name__ == name:
+                return c
+
+            if self.parent:
+                return self.parent.get_component(name)
+
+            return None
 
     def pre_init(self):
         for c in self.components:

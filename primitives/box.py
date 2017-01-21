@@ -1,8 +1,8 @@
 from numpy import array as v
 from OpenGL.GL import glBegin, glEnd, glVertex3fv, GL_TRIANGLES, glColor3fv
 
-from base import GameObject
-from base.components import BaseMesh
+from game.base import GameObject
+from game.base.components import BaseMesh
 
 class BoxMesh(BaseMesh):
     vertices = [
@@ -27,5 +27,5 @@ class BoxMesh(BaseMesh):
 
 class Box(GameObject):
     def pre_init(self):
-        self.components.append(BoxMesh())
+        self.components.append(BoxMesh(self))
         super(Box, self).pre_init()

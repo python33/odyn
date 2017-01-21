@@ -1,5 +1,6 @@
 class BaseComponent(object):
-    def __init__(self, is_visible=True):
+    def __init__(self, game_object, is_visible=True):
+        self.game_object = game_object
         self.is_visible = is_visible
 
     def show(self):

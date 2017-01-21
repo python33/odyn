@@ -11,7 +11,7 @@ class BaseApplication(object):
     def __init__(self, width=800, height=600, title='GLFW Window'):
         self.__initGLFW()
         self.window = self.__createWindow(width, height, title)
-        self.scene = Scene()
+        self.scene = Scene(self.window)
 
     def __initGLFW(self):
         if not glfw.Init():
