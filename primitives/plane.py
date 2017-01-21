@@ -2,8 +2,8 @@ from numpy import array as v
 from OpenGL.GL import glBegin, glEnd, glVertex3fv, GL_TRIANGLES, glColor3fv
 from numpy import array as v
 
-from game.base import GameObject
-from game.base.components import BaseMesh
+from odyn.scene.node import Node
+from odyn.components import BaseMesh
 
 
 class PlaneMesh(BaseMesh):
@@ -20,8 +20,8 @@ class PlaneMesh(BaseMesh):
     ]
 
 
-class Plane(GameObject):
-    def pre_init(self):
-        self.components.append(PlaneMesh(self))
-        super(Plane, self).pre_init()
+class Plane(Node):
+    def init(self):
+        self.add_component(PlaneMesh)
+        super(Plane, self).init()
 

@@ -1,7 +1,8 @@
 from sets import Set
+from .object import BaseObject
 
 
-class ChildParent(object):
+class ChildParent(BaseObject):
     def __init__(self):
         self.children = Set()
         self.parent = None

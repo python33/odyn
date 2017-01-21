@@ -5,12 +5,12 @@ from .base import BaseComponent
 
 
 class Transform(BaseComponent):
-    def __init__(self, game_object, pos=v([0.0, 0.0, 0.0]), rot=v([0.0, 0.0, 0.0]), scale=v([1.0, 1.0, 1.0]), **kwargs):
-        self.position = pos
-        self.rotation = rot
-        self.scale = scale
+    def __init__(self, game_object):
+        self.position = v([0., 0., 0.])
+        self.rotation = v([0., 0., 0.])
+        self.scale = v([1., 1., 1.])
 
-        super(Transform, self).__init__(game_object, **kwargs)
+        super(Transform, self).__init__(game_object)
 
     def apply(self):
         """

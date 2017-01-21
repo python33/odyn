@@ -1,13 +1,14 @@
 import cyglfw3 as glfw
 
-from .scene import Scene
+from odyn.scene import Scene
+from odyn.base import BaseObject
 
 
 class ApplicationException(Exception):
     pass
 
 
-class BaseApplication(object):
+class BaseApplication(BaseObject):
     def __init__(self, width=800, height=600, title='GLFW Window'):
         self.__initGLFW()
         self.window = self.__createWindow(width, height, title)
@@ -33,12 +34,16 @@ class BaseApplication(object):
         return window
 
     def init(self):
-        self.scene.pre_init()
+        self.onInit()
         self.scene.init()
-        self.scene.post_init()
+
+    def ready(self):
+        self.onReady()
+        self.scene.ready()
 
     def run(self):
         self.init()
+        self.ready()
 
         while not glfw.WindowShouldClose(self.window):
             self.scene.update()

@@ -1,4 +1,4 @@
-from game.base.components import BaseComponent
+from odyn.components import BaseComponent
 from .keyboard import Keyboard
 
 

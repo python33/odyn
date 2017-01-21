@@ -1,6 +1,3 @@
-from .gameobject import GameObject
-from .camera import Camera
-from .scene import Scene
-from .application import BaseApplication
+from .object import BaseObject
 
-__all__ = ['BaseApplication', 'GameObject', 'Camera', 'Scene']
+__all__ = ['BaseObject']
